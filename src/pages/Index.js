@@ -8,7 +8,7 @@ const Index = (props) => {
         image: "",
         title: "",
     });
-    
+
     const loaded = () => {
         return props.pantries.map(pantry => (
             <div key={pantry._id} className="pantry">
@@ -23,8 +23,12 @@ const Index = (props) => {
 
     const loading = () => <h1>Loading ...</h1>
 
-    const handleChange = () => {
-
+    const handleChange = (event) => {
+        setNewForm(prevState => ({
+                ...prevState,
+                [event.target.name]: event.target.value
+            }
+        ))
     }
 
     const handleSubmit = () => {
