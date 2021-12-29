@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Index = (props) => {
-    const [newForm, setNewForm] = useState({
-        name: "",
-        image: "",
-        title: "",
-    });
+    const [newForm, setNewForm] = useState(getNewState());
 
     const loaded = () => {
         return props.pantries.map(pantry => (
@@ -31,13 +27,24 @@ const Index = (props) => {
         ))
     }
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.createPantries(newForm)
+        setNewForm(getNewState());
+    }
+
+    function getNewState() {
+        return {
+            name: "",
+            image: "",
+            location: "",
+            description: "",
+        }
     }
 
     return (
         <section>
-            <form>
+            <form className="Form" onSubmit={handleSubmit}>
                 <input 
                 type="text" 
                 value={newForm.name} 
