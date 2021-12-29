@@ -32,7 +32,7 @@ const Index = (props) => {
     }
 
     const handleSubmit = () => {
-
+        
     }
 
     return (
@@ -47,14 +47,14 @@ const Index = (props) => {
                 />
                 <input 
                 type="text" 
-                value={newForm.name} 
+                value={newForm.image} 
                 onChange={handleChange}
                 placeholder=""
                 name="image"
                 />
                 <input 
                 type="text" 
-                value={newForm.name} 
+                value={newForm.location} 
                 onChange={handleChange}
                 placeholder="Home Grown"
                 name="location"
