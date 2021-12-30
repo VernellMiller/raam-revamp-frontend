@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Show from "../pages/Show";
 import Index from "../pages/Index";
@@ -11,7 +10,7 @@ const Main = (props) => {
     const PANTRY_BASE_URL = "https://raam-test-api-2.herokuapp.com";
 
     const getPantries = async () => {
-        // const data = await fetch(PANTRY_BASE_URL).then(Response => Response.json());
+        // const data = await fetch(PANTRY_BASE_URL + "/pantry").then(Response => Response.json());
         const Response = await fetch(PANTRY_BASE_URL + "/pantry");
         const data = await Response.json();
         setPantries(data);
