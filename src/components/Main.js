@@ -17,7 +17,7 @@ const Main = (props) => {
     };
 
     const createPantries = async (pantry) => {
-        await fetch(PANTRY_BASE_URL, {
+        await fetch(PANTRY_BASE_URL + "/pantry", {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json"
@@ -33,7 +33,7 @@ const Main = (props) => {
         <main>
             <Switch>
                 <Route exact path="/">
-                    <Index pantries={pantries} createPantries={createPantries} />
+                    <Index pantries={pantries} createPantries={createPantries}/>
                 </Route>
                 <Route path="/pantry/:id" render={(rp) => (
                     <Show {...rp} />
