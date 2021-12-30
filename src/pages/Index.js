@@ -38,7 +38,7 @@ const Index = (props) => {
             name: "",
             image: "",
             location: "",
-            description: "",
+            description: ""
         }
     }
 
