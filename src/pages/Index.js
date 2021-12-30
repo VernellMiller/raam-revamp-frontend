@@ -78,7 +78,7 @@ const Index = (props) => {
                 value="Create Pantry" 
                 />
             </form>
-            { props.pantry ? loaded() : loading() }
+            { props.pantries ? loaded() : loading() }
         </section>
     );
 }
