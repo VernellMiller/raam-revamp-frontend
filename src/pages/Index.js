@@ -49,14 +49,14 @@ const Index = (props) => {
                 type="text" 
                 value={newForm.name} 
                 onChange={handleChange}
-                placeholder="RAAM"
+                placeholder="pantry name"
                 name="name"
                 />
                 <input 
-                type="text" 
+                type="url" 
                 value={newForm.image} 
                 onChange={handleChange}
-                placeholder=""
+                placeholder="image url"
                 name="image"
                 />
                 <input 
@@ -65,6 +65,13 @@ const Index = (props) => {
                 onChange={handleChange}
                 placeholder="Home Grown"
                 name="location"
+                />
+                <input 
+                type="text" 
+                value={newForm.description} 
+                onChange={handleChange}
+                placeholder="description"
+                name="description"
                 />
                 <input 
                 type="submit" 
