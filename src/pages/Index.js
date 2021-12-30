@@ -63,7 +63,7 @@ const Index = (props) => {
                 type="text" 
                 value={newForm.location} 
                 onChange={handleChange}
-                placeholder="Home Grown"
+                placeholder="location"
                 name="location"
                 />
                 <input 
