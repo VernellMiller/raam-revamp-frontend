@@ -5,14 +5,14 @@ import Pantry from "../pages/Pantry";
 import Show from "../pages/Show";
 import Index from "../pages/Index";
 
-const Main = () => {
+const Main = (props) => {
     const [ pantries, setPantries ] = useState(null);
 
 
     const PANTRY_BASE_URL = "https://raam-test-api.herokuapp.com/pantry/";
 
     const getPantries = async () => {
-        // const data = await fetch(BASE_URL).then(Response => Response.json());
+        // const data = await fetch(PANTRY_BASE_URL).then(Response => Response.json());
         const Response = await fetch(PANTRY_BASE_URL);
         const data = await Response.json();
         setPantries(data);
