@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Main from './components/Main';
-import Index from './pages/Index';
+import Main from './pages/PantryPages/Main';
+import Index from './pages/PantryPages/Index';
 
 function App() {
   return (
