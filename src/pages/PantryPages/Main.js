@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Show from "./Show";
 import Index from "./Index";
 
@@ -27,6 +27,22 @@ const Main = (props) => {
         getPantries();
     };
 
+    const updatePantries = async (pantry, id) => {
+        await fetch(PANTRY_BASE_URL + id, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'Application/json'
+            },
+            body: JSON.stringify(pantry)
+        });
+        getPantries()
+    };
+
+    const deletePantries = async id => {
+        await fetch(PANTRY_BASE_URL + id, { method: 'DELETE' });
+        getPantries();
+    }
+
     useEffect(() => getPantries(), []);
 
     return (
@@ -36,7 +52,15 @@ const Main = (props) => {
                     <Index pantries={pantries} createPantries={createPantries}/>
                 </Route>
                 <Route path="/pantry/:id" render={(rp) => (
-                    <Show {...rp} />
+                    pantries.length ?
+                    <Show 
+                        {...rp}
+                        pantries={pantries} 
+                        updatePantries={updatePantries}
+                        deletePantries={deletePantries}
+                    />
+                :
+                <Redirect to="/" />
                 )} />
             </Switch>
         </main>
