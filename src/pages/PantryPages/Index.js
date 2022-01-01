@@ -8,7 +8,7 @@ const Index = (props) => {
     const loaded = () => {
         return props.pantries.map(pantry => (
             <div key={pantry._id} className="pantry">
-                <Link to={`/pantries/${pantry._id}`}>
+                <Link to={`/pantry/${pantry._id}`}>
                     <h1>{pantry.name}</h1>
                 </Link>
                 <img src={pantry.image} alt={pantry.name}/>

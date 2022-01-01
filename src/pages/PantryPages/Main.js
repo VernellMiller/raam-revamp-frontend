@@ -48,7 +48,7 @@ const Main = (props) => {
     return (
         <main>
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/pantry">
                     <Index pantries={pantries} createPantries={createPantries}/>
                 </Route>
                 <Route path="/pantry/:id" render={(rp) => (
