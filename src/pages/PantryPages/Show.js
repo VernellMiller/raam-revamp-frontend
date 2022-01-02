@@ -1,35 +1,35 @@
 import { useState } from 'react';
 
-const Show = (props) => {
+function Show(props) {
     const id = props.match.params.id;
     const pantries = props.pantries;
-    const pantry = pantries.find(p => p._id === id);
+    const pantry = pantries.find((p) => p._id === id);
 
-    const[editForm, setEditForm] = useState(pantry);
+    const[ editForm, setEditForm ] = useState(pantry);
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         setEditForm(prevState => ({
           ...prevState,
-          [event.target.name]: event.target.value,
+          [event.target.name]: event.target.value
         }));
-      };
+      }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = event => {
         event.preventDefault();
         const{ _id, name, image, location, description} = editForm;
         props.updatePantries({name, image, location, description}, _id);
         props.history.push('/pantry');
-    }; 
+    }
 
     const removePantry = () => {
         props.deletePantries(pantry._id);
         props.history.push('/pantry');
-    };
+    }
 
     return (
         <div className='pantry'>
             <h1>{pantry?.name}</h1>
-            <img src={pantry?.image} alt={pantry.name} />
+            <img src={pantry?.image} alt={pantry?.name} />
             <h2>{pantry?.location}</h2>
             <h2>{pantry?.description}</h2>
             <button id="delete" onClick={removePantry}>DELETE</button>
