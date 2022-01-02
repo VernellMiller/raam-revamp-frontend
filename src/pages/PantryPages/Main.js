@@ -4,20 +4,20 @@ import Show from "./Show";
 import Index from "./Index";
 
 const Main = (props) => {
-    const [ pantries, setPantries ] = useState(null);
+    const [ pantries, setPantries ] = useState([]);
 
 
-    const PANTRY_BASE_URL = "https://raam-test-api-2.herokuapp.com";
+    const PANTRY_BASE_URL = "https://raam-test-api-2.herokuapp.com/pantry/";
 
     const getPantries = async () => {
-        // const data = await fetch(PANTRY_BASE_URL + "/pantry").then(Response => Response.json());
-        const Response = await fetch(PANTRY_BASE_URL + "/pantry");
+        // const data = await fetch(PANTRY_BASE_URL).then(Response => Response.json());
+        const Response = await fetch(PANTRY_BASE_URL);
         const data = await Response.json();
         setPantries(data);
     };
 
     const createPantries = async (pantry) => {
-        await fetch(PANTRY_BASE_URL + "/pantry", {
+        await fetch(PANTRY_BASE_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json"
