@@ -5,8 +5,6 @@ import Index from "./Index";
 
 const Main = (props) => {
     const [ pantries, setPantries ] = useState([]);
-
-
     const PANTRY_BASE_URL = "https://raam-test-api-2.herokuapp.com/pantry/";
 
     const getPantries = async () => {
